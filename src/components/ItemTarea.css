@@ -1,0 +1,198 @@
+/* src/components/ItemTarea.css */
+
+.task-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Colores de estado */
+.task-item.pendiente {
+  background-color: #e0e0e0; /* Gris un poco más oscuro para pendiente */
+  border-color: #c0c0c0;
+}
+
+.task-item.terminada-a-tiempo {
+  background-color: #e6ffe6; /* Verde claro para terminada a tiempo */
+  border-color: #a0e0a0;
+}
+
+.task-item.terminada-tarde {
+  background-color: #fffacd; /* Amarillo pálido/naranja para terminada tarde */
+  border-color: #f7d794;
+}
+
+/* Estilos para el título alineado a la izquierda */
+.task-title-left {
+  margin: 0;
+  font-size: 1.15em;
+  text-align: left;
+  margin-right: auto;
+}
+
+/* Color del título de la tarea basado en el estado */
+.task-item.pendiente .task-title-left {
+  color: #333; /* Negro para pendiente */
+}
+
+.task-item.terminada-a-tiempo .task-title-left,
+.task-item.terminada-tarde .task-title-left {
+  color: #28a745; /* Verde para terminada (a tiempo o tarde) */
+}
+
+
+/* Estilos para el párrafo de la descripción */
+.task-item .task-description {
+  margin: 5px 0 10px 0;
+  font-size: 0.9em;
+  color: #333;
+  flex-grow: 1;
+}
+
+/* La fecha en sí en negrita */
+.task-item .task-date strong {
+  font-weight: bold;
+  color: #333; /* Mantener el color negro para el valor de la fecha */
+}
+
+/* El texto "Fecha terminada:" o "Fecha de creación:" no en negrita */
+.task-item .task-date {
+  font-weight: normal;
+  color: #555;
+  margin: 0; /* Eliminar margen vertical */
+}
+
+
+/* Contenedor principal para la parte superior de la tarjeta (Reabrir, Título, Iconos) */
+.task-header-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Nuevo estilo para el grupo de elementos de la derecha (Reabrir y los iconos) */
+.task-header-right-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Estilos para el grupo de iconos (lápiz y papelera) */
+.task-icons-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --- ESTILOS PARA EL FOOTER CON FECHAS Y BOTONES --- */
+.task-footer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+
+.task-dates-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.85em;
+}
+
+
+/* El check-icon-container y el botón de marcar como terminada ahora estarán en task-actions-bottom */
+.task-actions-bottom {
+  display: flex;
+  align-items: flex-end;
+}
+
+.task-actions-bottom button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.task-actions-bottom button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos de los iconos individuales (papelera y ahora lápiz) */
+.delete-icon, .edit-icon {
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-icon {
+  color: #dc3545;
+}
+
+.delete-icon:hover {
+  color: #c82333;
+}
+
+.edit-icon {
+  color: #007bff;
+}
+
+.edit-icon:hover {
+  color: #0056b3;
+}
+
+/* Estilos del icono de gancho grande */
+.check-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.check-icon {
+  font-size: 2.5em;
+  color: #28a745; /* Color verde para el gancho */
+}
+
+/* --- NUEVOS ESTILOS PARA EL ICONO DEL RELOJ --- */
+.clock-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px; /* Mantener el mismo margen que el gancho */
+}
+
+.clock-icon {
+  font-size: 2.5em; /* Mismo tamaño que el gancho */
+  color: #e69d00; /* Un color naranja/amarillo que combine con terminada-tarde */
+}
+
+
+/* Estilo para el botón de reabrir */
+.reopen-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8em;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+}
+
+.reopen-button:hover {
+  background-color: #45a049;
+}

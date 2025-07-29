@@ -1,0 +1,126 @@
+/* src/components/FormTarea.css (ÚLTIMO CAMBIO: Título y X en la misma línea) */
+
+.form-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.form-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* NUEVO ESTILO: Contenedor del título y el botón de cierre */
+.form-header {
+    display: flex; /* Habilitar Flexbox */
+    justify-content: space-between; /* Espacio entre los elementos (título a la izquierda, X a la derecha) */
+    align-items: center; /* Alinear verticalmente al centro */
+    margin-bottom: 25px; /* Mantener el margen inferior para separar del formulario */
+}
+
+.form-content h2 {
+    /* Eliminamos text-align: center y position: absolute */
+    /* Flexbox se encargará del posicionamiento */
+    margin: 0; /* Eliminar margen para que Flexbox tenga control total */
+    color: #333;
+    font-size: 1.8em;
+    flex-grow: 1; /* Permite que el título ocupe el espacio disponible */
+    text-align: center; /* Centrar el texto del título dentro de su espacio */
+}
+
+.form-content .close-button {
+    /* Eliminamos position: absolute; top; right; */
+    /* Flexbox lo posicionará automáticamente */
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    flex-shrink: 0; /* Evita que el botón se encoja */
+}
+
+.form-content .close-button:hover {
+    background-color: #eee;
+    color: #333;
+    border-color: #999;
+}
+
+.form-content form div {
+    margin-bottom: 15px;
+}
+
+.form-content label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-content input[type="text"],
+.form-content textarea,
+.form-content input[type="date"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.form-content input:focus,
+.form-content textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.form-content textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-content button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 20px;
+}
+
+.form-content button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.no-tasks-message {
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+    font-style: italic;
+}

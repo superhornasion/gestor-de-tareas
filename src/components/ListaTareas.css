@@ -1,0 +1,80 @@
+/* src/components/ListaTareas.css */
+
+.task-sections-container {
+  width: 100%; /* Asegura que ocupe todo el espacio disponible */
+  display: flex;
+  flex-direction: column; /* Las secciones se apilarán verticalmente */
+  gap: 20px; /* Espacio entre las secciones (pendientes y terminadas) */
+  text-align: left; /* Alinea el texto a la izquierda dentro de los contenedores de sección */
+}
+
+.task-section {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer; /* Indica que se puede hacer clic para expandir/colapsar */
+  padding-bottom: 10px;
+  border-bottom: 1px solid #b9b8b8; /* Línea de separación bajo el título */
+  margin-bottom: 10px;
+}
+
+.section-header h2 {
+  margin: 0; /* Elimina el margen por defecto del h2 */
+  font-size: 1.2em;
+  color: #333;
+}
+
+.toggle-icon {
+  font-size: 1.5em; /* Tamaño de la flecha */
+  transition: transform 0.3s ease; /* Suaviza la rotación de la flecha */
+}
+
+.toggle-icon.expanded {
+  transform: rotate(180deg); /* La flecha gira cuando está expandida */
+}
+
+.task-list-content {
+  /* Estilos para el contenedor de las tareas cuando está visible */
+  overflow: hidden; /* Oculta el contenido extra */
+  max-height: 0; /* Por defecto colapsado */
+  transition: max-height 0.3s ease-out; /* Animación de despliegue */
+}
+
+.task-list-content.visible {
+  max-height: 500px; /* Un valor lo suficientemente grande para mostrar el contenido */
+  /* Ajusta este valor si tienes muchas tareas */
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacio entre cada ItemTarea */
+  padding-top: 10px; /* Espacio superior para la lista de tareas */
+}
+
+.add-task-button-container {
+  text-align: center; /* Centra el botón al final */
+  margin-top: 30px; /* Espacio superior para separar de las listas */
+}
+
+.add-task-button {
+  background-color: #4CAF50; /* Color verde */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.add-task-button:hover {
+  background-color: #45a049;
+}
