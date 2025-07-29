@@ -1,5 +1,4 @@
-// src/components/ItemTarea.js (Con confirmación de eliminación)
-import React from 'react';
+import React, { useState } from 'react';
 import { FaTrash, FaCheckCircle, FaPencilAlt, FaRegClock } from 'react-icons/fa';
 import './ItemTarea.css';
 
@@ -11,6 +10,8 @@ const formatDisplayDate = (dateString) => {
 };
 
 function ItemTarea({ task, handleUpdateTask, handleDeleteTask, onEditTask }) {
+  const [isDeleting, setIsDeleting] = useState(false);
+
   const isTerminada = task.estado === 'Terminada';
 
   const isCompletedLate = isTerminada && task.fechaLimite && task.fechaCompletada &&
@@ -40,15 +41,23 @@ function ItemTarea({ task, handleUpdateTask, handleDeleteTask, onEditTask }) {
     handleUpdateTask(task.tareaId, { estado: 'Pendiente', fechaCompletada: null });
   };
 
-  // NUEVA FUNCIÓN: Manejar la eliminación con confirmación
+  // Manejar la eliminación con confirmación y animación
   const handleDeleteClick = () => {
     if (window.confirm(`¿Estás seguro de que quieres eliminar la tarea "${task.titulo}"?`)) {
-      handleDeleteTask(task.tareaId);
+      setIsDeleting(true); // Activa la animación de salida
+      // Espera la duración de la animación (0.5s) antes de eliminar realmente
+      setTimeout(() => {
+        handleDeleteTask(task.tareaId);
+        setIsDeleting(false); // Reinicia el estado después de la eliminación
+      }, 500); // 500ms coincide con la duración de la animación en CSS
     }
   };
 
+  // Añadir la clase 'fade-out' condicionalmente
+  const taskClasses = `${getItemColorClass()} ${isDeleting ? 'fade-out' : ''}`;
+
   return (
-    <div className={`task-item ${getItemColorClass()}`}>
+    <div className={`task-item ${taskClasses}`}>
       <div className="task-header-controls">
         <h3 className="task-title-left">{task.titulo}</h3>
 
@@ -64,8 +73,12 @@ function ItemTarea({ task, handleUpdateTask, handleDeleteTask, onEditTask }) {
                 <FaPencilAlt />
               </span>
             )}
-            {/* LLAMAR A LA NUEVA FUNCIÓN handleDeteleClick */}
-            <span className="delete-icon" onClick={handleDeleteClick} title="Eliminar tarea">
+            <span
+              className="delete-icon"
+              onClick={handleDeleteClick}
+              title="Eliminar tarea"
+              disabled={isDeleting} // <--- Deshabilita el botón durante la animación de salida
+            >
               <FaTrash />
             </span>
           </div>
@@ -73,12 +86,12 @@ function ItemTarea({ task, handleUpdateTask, handleDeleteTask, onEditTask }) {
       </div>
 
       <p className="task-description">{task.descripcion}</p>
-      
+
       <div className="task-footer-info">
         <div className="task-dates-group">
           {task.fechaCreacion && (
             <p className="task-date">
-              {isTerminada ? 'Fecha terminada:' : 'Fecha de creación:'} 
+              {isTerminada ? 'Fecha terminada: ' : 'Fecha de creación: '}
               <strong>{formatDisplayDate(task.fechaCompletada || task.fechaCreacion)}</strong>
             </p>
           )}

@@ -1,10 +1,8 @@
-/* src/App.css (Versión CORREGIDA para fondo borroso y popup nítido) */
-
 /* Contenedor principal del contenido de la app que se va a desenfocar */
 .App-content {
   font-family: sans-serif;
   text-align: center;
-  max-width: 800px; /* Sigue siendo el ancho máximo para tu contenido */
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la vista */
@@ -17,7 +15,6 @@
 /* Esta clase se añade al .App-content cuando el formulario está visible */
 .App-content.blur-background {
   filter: blur(5px); /* Aplica el desenfoque */
-  /* Opcional: para evitar interacción con el fondo mientras el modal está abierto */
   pointer-events: none;
   user-select: none;
 }
@@ -39,7 +36,7 @@ main {
   padding: 20px;
   border-radius: 8px;
   text-align: left;
-  background-color: transparent; /* Asegura que no tenga un fondo sólido */
+  background-color: transparent;
 }
 
 .task-list {

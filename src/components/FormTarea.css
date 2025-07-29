@@ -1,5 +1,3 @@
-/* src/components/FormTarea.css (ÚLTIMO CAMBIO: Título y X en la misma línea) */
-
 .form-popup {
     position: fixed;
     top: 0;
@@ -24,17 +22,14 @@
     box-sizing: border-box;
 }
 
-/* NUEVO ESTILO: Contenedor del título y el botón de cierre */
 .form-header {
-    display: flex; /* Habilitar Flexbox */
+    display: flex;
     justify-content: space-between; /* Espacio entre los elementos (título a la izquierda, X a la derecha) */
     align-items: center; /* Alinear verticalmente al centro */
     margin-bottom: 25px; /* Mantener el margen inferior para separar del formulario */
 }
 
 .form-content h2 {
-    /* Eliminamos text-align: center y position: absolute */
-    /* Flexbox se encargará del posicionamiento */
     margin: 0; /* Eliminar margen para que Flexbox tenga control total */
     color: #333;
     font-size: 1.8em;
@@ -43,8 +38,6 @@
 }
 
 .form-content .close-button {
-    /* Eliminamos position: absolute; top; right; */
-    /* Flexbox lo posicionará automáticamente */
     background: none;
     border: 1px solid #ccc;
     border-radius: 50%;

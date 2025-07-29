@@ -1,4 +1,3 @@
-// src/components/FormTarea.js (ÚLTIMO CAMBIO: Título y X en la misma línea)
 import React, { useState, useEffect } from 'react';
 import './FormTarea.css';
 
@@ -45,12 +44,10 @@ function FormTarea({ handleCreateTask, handleUpdateTask, onClose, taskToEdit }) 
   return (
     <div className="form-popup">
       <div className="form-content">
-        {/* NUEVO CONTENEDOR PARA EL TÍTULO Y EL BOTÓN DE CIERRE */}
         <div className="form-header">
           <h2>{formTitle}</h2>
           <button className="close-button" onClick={onClose}>X</button>
         </div>
-        {/* FIN DEL NUEVO CONTENEDOR */}
 
         <form onSubmit={handleSubmit}>
           <div>

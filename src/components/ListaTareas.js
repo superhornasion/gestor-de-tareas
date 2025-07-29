@@ -1,14 +1,12 @@
-// src/components/ListaTareas.js (Versión con onEditTask pasado a ItemTarea)
-import React, { useState } from 'react'; // Mantén useState si usas el colapsado
+import React, { useState } from 'react';
 import ItemTarea from './ItemTarea';
 import './ListaTareas.css';
 
 function ListaTareas({ tasks, handleUpdateTask, handleDeleteTask, onAddTaskClick, onEditTask }) {
-  // Mantén la lógica de colapsado si la deseas
   const [showPending, setShowPending] = useState(true);
-  const [showCompleted, setShowCompleted] = useState(true);
+  const [showCompleted, setShowCompleted] = useState(false);
 
-  // Tus filtros internos, ya que ListaTareas maneja ambas secciones
+  // Filtros para ambos estados de tarea
   const pendingTasks = tasks.filter(task => task.estado === 'Pendiente');
   const completedTasks = tasks.filter(task => task.estado === 'Terminada');
 
@@ -72,7 +70,6 @@ function ListaTareas({ tasks, handleUpdateTask, handleDeleteTask, onAddTaskClick
         </div>
       </div>
 
-      {/* Botón de Agregar tarea al final (que ya tienes) */}
       <div className="add-task-button-container">
         <button className="add-task-button" onClick={onAddTaskClick}>
           Agregar tarea
